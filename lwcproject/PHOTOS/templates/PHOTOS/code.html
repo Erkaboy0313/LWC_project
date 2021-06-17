@@ -1,0 +1,29 @@
+{% extends 'PHOTOS/layout.html' %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-content">
+        {% for item in ls %}
+            {% if item.Category == 'Code' %}
+                {% for items in item.photos_set.all %}
+                    <div class="content">
+                        <div class="image">
+                            <img class="image1" src="{{ items.imageURL }}" alt="mustbe_image">
+                        </div>
+                        <p class="name">Pick name: {{ items.Title }}</p>
+                        <p>Category: {{ items.Category }}</p>
+                        <form action="" method="GET">
+                            {% csrf_token %}
+                            <button class='btn' type="submit" name="{{items.id}}">View</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
