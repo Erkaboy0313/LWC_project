@@ -9,7 +9,7 @@ Main Page
 <div class="container-content">
     {% for item in ls %}
         {% for items in item.photos_set.all %}
-            {% if items.id == id %}
+            {% if text in items.category or text in items.Title %}
                 <h2 class="title">Pick name: {{ items.Title }}</h2>
                     <div class="content-box">
                         <div class="image-box">
@@ -18,8 +18,8 @@ Main Page
                         <p>Category: {{ items.category }}</p>
                         <p>Description: {{ items.Description }}</p>
                     </div>
-                    {% endif %}
-                {% endfor %}
+                {% endif %}
+            {% endfor %}
         {% endfor %}
     </div>
 

@@ -100,3 +100,28 @@ body{
 .form-search{
     margin-left: 45%;
 }
+.content-box{
+    width: 70%;
+    height: 70%;
+    padding: 10px;
+    margin-top: 30px;
+    display:inline-block;
+    text-align: left;
+    box-shadow: 0 0 4px #888888;
+    border-radius: 5px;
+    margin-left: 30px;
+    background-color: white;
+}
+.image-box{
+    margin-top: -10px;
+    margin-left: -10px;
+    width: 70%;
+    height: 50%;
+    border-radius: 3px;
+}
+.image1-view{
+    background-size:auto;
+    width: 881px;
+    height: 50%;
+    border-radius: 5px 5px 0 0;
+}

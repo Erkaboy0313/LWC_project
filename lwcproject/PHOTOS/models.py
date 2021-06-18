@@ -10,7 +10,7 @@ class Category(models.Model):
 
 class Photos(models.Model):
 
-    Category = models.ForeignKey(Category , on_delete=models.CASCADE)
+    category = models.ForeignKey(Category , on_delete=models.CASCADE)
     Image = models.ImageField(null = True)
     Title = models.CharField(max_length=100)
     Description = models.TextField(max_length=1000)

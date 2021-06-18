@@ -4,6 +4,21 @@
 Main Page
 {% endblock %}
 
+{% block header %}
+    <li><a href="/cars">Cars</a></li>
+    <li><a href="/books">Books</a></li>
+    <li><a href="/design">Design</a></li>
+    <li><a href="/code">Code</a></li>
+{% endblock %}
+
+{% block serach%}
+<form action="/search" method="post" class="din form-search" >
+    {% csrf_token %}
+    {{form}}
+    <button class='search-button' type="submit" name="send">Search</button>
+</form>
+{% endblock %}
+
 {% block body %}
 
     <div class="container-content">
@@ -14,7 +29,7 @@ Main Page
                     <img class="image1" src="{{ items.imageURL }}" alt="mustbe_image">
                 </div>
                 <p class="name">Pick name: {{ items.Title }}</p>
-                <p>Category: {{ items.Category }}</p>
+                <p>Category: {{ items.category }}</p>
                 <form action="{{items.id}}" method="GET">
                     {% csrf_token %}
                     <button class='btn' type="submit" name="{{items.id}}">View</button>
