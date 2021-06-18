@@ -12,7 +12,7 @@ Main Page
 {% endblock %}
 
 {% block serach %}
-<form action="#" method="post" class="din form-search" >
+<form action="/search" method="post" class="din form-search" >
     {% csrf_token %}
     {{form}}
     <!-- <input class="search-box" type="text" name="search" placeholder="serach"> -->

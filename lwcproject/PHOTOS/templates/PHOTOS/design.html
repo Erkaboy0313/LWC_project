@@ -11,7 +11,7 @@ Main Page
 {% endblock %}
 
 {% block serach%}
-<form action="#" method="GET" class="din form-search" >
+<form action="/search" method="post" class="din form-search" >
     {% csrf_token %}
     {{form}}
     <button class='search-button' type="submit" name="search">Search</button>
