@@ -5,10 +5,9 @@ Main Page
 {% endblock %}
 
 {% block header %}
-    <li><a href="/cars">Cars</a></li>
-    <li><a href="/books">Books</a></li>
-    <li><a href="/design">Design</a></li>
-    <li><a href="/code">Code</a></li>
+    {% for item in ls %}
+    <li> <a href="/{{item.Category}}">{{item.Category}}</a></li>
+    {% endfor %}
 {% endblock %}
 
 {% block serach%}

@@ -1,26 +1,26 @@
 {% extends 'PHOTOS/layout.html' %}
 
 {% block title %}
-Main Page
+Search page
 {% endblock %}
 
 {% block body %}
 
 <div class="container-content">
-    {% for item in ls %}
-        {% for items in item.photos_set.all %}
-            {% if text in items.category or text in items.Title %}
-                <h2 class="title">Pick name: {{ items.Title }}</h2>
-                    <div class="content-box">
-                        <div class="image-box">
-                            <img class="image1-view" src="{{ items.imageURL }}" alt="mustbe_image">
-                        </div>
-                        <p>Category: {{ items.category }}</p>
-                        <p>Description: {{ items.Description }}</p>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+    {% if T %}
+    {% for item in T %}
+        <h2 class="title">Pick name: {{ item.Title }}</h2>
+            <div class="content-box">
+                <div class="image-box">
+                    <img class="image1-view" src="{{ item.imageURL }}" alt="mustbe_image">
+                </div>
+                <p>Category: {{ item.category }}</p>
+                <p>Description: {{ item.Description }}</p>
+            </div> 
+    {% endfor %}
+    {% else %}
+    <h2 class="title">Qidiruv bo'yicha ma'lumot topilmadi</h2>
+    {% endif %}
     </div>
 
 {% endblock %}

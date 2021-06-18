@@ -1,7 +1,7 @@
 from typing import Text
 from django.shortcuts import render
 from .forms import Search
-from .models import  Category
+from .models import  Category , Photos
 # Create your views here.
 
 def main(response):
@@ -9,24 +9,11 @@ def main(response):
     form = Search()
     return render(response , 'PHOTOS/index.html' , {'ls':ls,'form':form})
 
-def cars(response):
+def categories(response , category):
     ls = Category.objects.all()
     form = Search()
-    return render(response , 'PHOTOS/index.html' , {'ls':ls,'form':form})
+    return render(response , 'PHOTOS/categories.html' , {'ls':ls , 'form':form , 'category':category})
 
-def books(response):
-    ls = Category.objects.all()
-    form = Search()
-    return render(response , 'PHOTOS/index.html' , {'ls':ls,'form':form})
-
-def design(response):
-    ls = Category.objects.all()
-    form = Search()
-    return render(response , 'PHOTOS/index.html' , {'ls':ls,'form':form})
-def code(response):
-    ls = Category.objects.all()
-    form = Search()
-    return render(response , 'PHOTOS/index.html' , {'ls':ls,'form':form})
 def info(response , id):
     ls = Category.objects.all()
     contex = {
@@ -37,12 +24,11 @@ def info(response , id):
 
 def search(response):
     text = ''
-    ls = Category.objects.all()
     if response.method=="POST":
         form = Search(response.POST)
         if form.is_valid():
             text = response.POST.get('search')
-        # text = 'Harry'
         else:
             print('invalid')
-    return render(response , 'PHOTOS/search.html' , {'text':text,'ls':ls})
+    T = Photos.objects.filter(Title__icontains = text)
+    return render(response , 'PHOTOS/search.html' , {'text':text,'T':T})
